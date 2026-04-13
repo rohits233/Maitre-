@@ -1,0 +1,338 @@
+{
+  "/MaitreStack/WebhookUrl": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "WebhookUrl"
+    }
+  ],
+  "/MaitreStack/MediaStreamUrl": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MediaStreamUrl"
+    }
+  ],
+  "/MaitreStack/AlbDnsName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AlbDnsName"
+    }
+  ],
+  "/MaitreStack/CodeBuildProject": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CodeBuildProject"
+    }
+  ],
+  "/MaitreStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    }
+  ],
+  "/MaitreStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpc571A551F"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/IGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcIGW401E5305"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/VPCGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcVPCGWAFEB5E50"
+    }
+  ],
+  "/MaitreStack/AlbSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AlbSg1155C1BE"
+    }
+  ],
+  "/MaitreStack/AlbSg/to MaitreStackFargateSgDDCC071B:8080": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AlbSgtoMaitreStackFargateSgDDCC071B80805A24CD4F"
+    }
+  ],
+  "/MaitreStack/FargateSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "FargateSg4CA74029"
+    }
+  ],
+  "/MaitreStack/FargateSg/from MaitreStackAlbSg2ABF1EF2:8080": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "FargateSgfromMaitreStackAlbSg2ABF1EF28080AB81ACA5"
+    }
+  ],
+  "/MaitreStack/MaitreCluster/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreClusterF4DC9F9F"
+    }
+  ],
+  "/MaitreStack/MaitreLogs/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreLogs09B8F4C9"
+    }
+  ],
+  "/MaitreStack/MaitreTaskDef/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreTaskDef5300B090"
+    }
+  ],
+  "/MaitreStack/MaitreService/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreService73585C5F"
+    }
+  ],
+  "/MaitreStack/MaitreAlb/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreAlbD85D9CD3"
+    }
+  ],
+  "/MaitreStack/CodeBuildLogs/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CodeBuildLogs2297454D"
+    }
+  ],
+  "/MaitreStack/MaitreDockerBuild/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreDockerBuild6AAB0B3E"
+    }
+  ],
+  "/MaitreStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet1Subnet21963665"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet1RouteTable408C4138"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet1RouteTableAssociation85A43C15"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet1/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet1DefaultRouteA2CDC2FA"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet1/EIP": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet1EIP07ADB2D0"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet1/NATGateway": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet1NATGateway4EDAFCD4"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet2Subnet586EE907"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet2RouteTableCE3AB03D"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet2RouteTableAssociation2ED0F252"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet2/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet2DefaultRouteF52789E3"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet3/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet3SubnetA5C56AF2"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet3/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet3RouteTable2168D8BF"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet3/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet3RouteTableAssociation24663F98"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PublicSubnet3/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPublicSubnet3DefaultRoute8E6D2794"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet1Subnet8A78BE25"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet1RouteTableB7B1901A"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet1RouteTableAssociationEC6C3DBD"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet1/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet1DefaultRoute2B5D9966"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet2Subnet460177D0"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet2RouteTableDB9ECB37"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet2RouteTableAssociationECF40454"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet2/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet2DefaultRoute2875840D"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet3/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet3Subnet6D1EB293"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet3/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet3RouteTable4499D95A"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet3/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet3RouteTableAssociationD537B45E"
+    }
+  ],
+  "/MaitreStack/MaitreVpc/PrivateSubnet3/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreVpcPrivateSubnet3DefaultRoute72E60868"
+    }
+  ],
+  "/MaitreStack/MaitreTaskDef/TaskRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreTaskDefTaskRole8B9B1F89"
+    }
+  ],
+  "/MaitreStack/MaitreTaskDef/ExecutionRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreTaskDefExecutionRoleE05019D7"
+    }
+  ],
+  "/MaitreStack/MaitreAlb/HttpsListener/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreAlbHttpsListener9ABA4610"
+    }
+  ],
+  "/MaitreStack/MaitreAlb/HttpListener/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreAlbHttpListener6C5E9165"
+    }
+  ],
+  "/MaitreStack/MaitreDockerBuild/Role/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreDockerBuildRole665AD8E0"
+    }
+  ],
+  "/MaitreStack/MaitreTaskDef/TaskRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreTaskDefTaskRoleDefaultPolicyEABB7CF0"
+    }
+  ],
+  "/MaitreStack/MaitreTaskDef/ExecutionRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreTaskDefExecutionRoleDefaultPolicyA760D42B"
+    }
+  ],
+  "/MaitreStack/MaitreAlb/HttpsListener/MaitreTargetsGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreAlbHttpsListenerMaitreTargetsGroup35F6CB57"
+    }
+  ],
+  "/MaitreStack/MaitreDockerBuild/Role/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MaitreDockerBuildRoleDefaultPolicy22D3F2F0"
+    }
+  ]
+}

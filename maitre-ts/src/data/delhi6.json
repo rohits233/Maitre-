@@ -1,0 +1,221 @@
+{
+  "Delhi6 Indian Kitchen & Bar": {
+    "Highland Village, TX": {
+      "location": {
+        "name": "Delhi6 Indian Kitchen & Bar",
+        "address": "2420 Justin Road, Highland Village, TX 75077",
+        "phone": "469.559.3559",
+        "email": "contact@mydelhi6.com",
+        "website": "https://mydelhi6.com"
+      },
+      "hours": {
+        "monday": "Closed",
+        "tuesday": "11:00 AM - 9:30 PM",
+        "wednesday": "11:00 AM - 9:30 PM",
+        "thursday": "11:00 AM - 9:30 PM",
+        "friday": "12:00 PM - 10:00 PM",
+        "saturday": null,
+        "sunday": "12:00 PM - 10:00 PM"
+      },
+      "notes": [
+        "V = Vegan Friendly",
+        "GF = Gluten Friendly",
+        "D = Dairy",
+        "N = Nuts",
+        "20% gratuity automatically added to parties of 5+",
+        "Kitchen uses major FDA allergens; not completely gluten-free"
+      ],
+      "menu": {
+        "Soup & Salad": [
+          { "name": "Tomato Soup", "price": 7.00, "tags": [] },
+          { "name": "Chicken Soup", "price": 7.00, "tags": [] },
+          { "name": "Indian Garden Salad", "price": 7.00, "tags": ["V", "GF"], "description": "Tomatoes, radish, beet root, peppers, cucumber, carrots, lime juice, himalayan salt, cilantro" }
+        ],
+        "Veg Starter": [
+          { "name": "Paneer Tikka", "price": 22.00, "tags": ["GF"], "quantity": "4 pcs" },
+          { "name": "Tandoori Soya Chap", "price": 16.00, "tags": [] },
+          { "name": "Papadi Chaat", "price": 12.00, "tags": [] },
+          { "name": "Veg Cutlets", "price": 12.00, "tags": [], "quantity": "4 pcs" },
+          { "name": "Hara Bhara Kabab", "price": 12.00, "tags": ["N"], "quantity": "3 pcs" },
+          { "name": "Dahi Bhalla", "price": 12.00, "tags": ["GF"] },
+          { "name": "Samosa Chaat", "price": 12.00, "tags": [] },
+          { "name": "Gobi Manchurian", "price": 12.00, "tags": ["V"] },
+          { "name": "Gol Gappe / Paani Poori", "price": 10.00, "tags": ["V"], "quantity": "6 pcs" },
+          { "name": "Onion Bhaji", "price": 10.00, "tags": ["V", "GF"] },
+          { "name": "Veg Samosa", "price": 8.00, "tags": ["V"], "quantity": "2 pcs" },
+          { "name": "Veg Spring Rolls", "price": 8.00, "tags": ["V"] },
+          { "name": "French Fries", "price": 6.00, "tags": ["V", "GF"] },
+          { "name": "Tandoori Bhutta (Seasonal)", "price": 6.00, "tags": [] },
+          { "name": "Masala Papadum", "price": 6.00, "tags": ["GF"] }
+        ],
+        "Non Veg Starter": [
+          { "name": "Lamb Chops", "price": 50.00, "tags": ["GF"] },
+          { "name": "Chicken Spring Rolls", "price": 12.00, "tags": [], "quantity": "4 pcs" },
+          { "name": "Chicken Samosa", "price": 12.00, "tags": [], "quantity": "2 pcs" },
+          { "name": "Tandoori Chicken", "price": 12.00, "tags": ["GF"], "quantity": "2 pcs" },
+          { "name": "Handmade Torpedo Shrimp", "price": 12.00, "tags": [], "quantity": "4 pcs" },
+          { "name": "Lamb Samosa", "price": 15.00, "tags": [], "quantity": "2 pcs" },
+          { "name": "Malai Boti", "price": 15.00, "tags": [], "quantity": "4 pcs" },
+          { "name": "Chicken Schezwan", "price": 16.00, "tags": [] },
+          { "name": "Banjara Chicken", "price": 15.00, "tags": ["GF"], "quantity": "4 pcs" },
+          { "name": "Seekh Kabob", "price": 15.00, "tags": ["GF"], "quantity": "4 pcs" },
+          { "name": "Chicken 65", "price": 16.00, "tags": [] },
+          { "name": "Tandoori Shrimp", "price": 20.00, "tags": ["GF"], "quantity": "6 pcs" },
+          { "name": "Tandoori Wings", "price": 20.00, "tags": ["GF"], "quantity": "6 pcs" },
+          { "name": "Chicken Momo (Dumplings)", "price": 18.00, "tags": [], "quantity": "6 pcs" },
+          { "name": "Chicken Lollipop", "price": 16.00, "tags": [], "quantity": "3 pcs" },
+          { "name": "Tandoori Pompano", "price": 30.00, "tags": ["GF"] },
+          { "name": "Delhi Fried Chicken w/Fries", "price": 12.00, "tags": [], "quantity": "2 pcs" },
+          { "name": "Shrimp Dynamite", "price": 15.00, "tags": [] }
+        ],
+        "Main Course - Chicken": {
+          "note": "All curries served with basmati rice",
+          "items": [
+            { "name": "Dhaba Butter Chicken", "price": 20.00, "tags": ["GF"] },
+            { "name": "Butter Chicken", "price": 19.00, "tags": ["GF"] },
+            { "name": "Chicken Tikka Masala", "price": 19.00, "tags": ["GF"] },
+            { "name": "Chicken Korma", "price": 19.00, "tags": ["GF"] },
+            { "name": "Palak Chicken", "price": 19.00, "tags": ["GF"] },
+            { "name": "Chicken Vindaloo", "price": 19.00, "tags": ["GF"] },
+            { "name": "Chicken Curry", "price": 19.00, "tags": ["GF"] },
+            { "name": "Kadai Chicken", "price": 19.00, "tags": ["GF"] },
+            { "name": "Malabar Chicken", "price": 19.00, "tags": ["GF"] }
+          ]
+        },
+        "Main Course - Shrimp": {
+          "note": "All curries served with basmati rice",
+          "items": [
+            { "name": "Shrimp Tikka Masala", "price": 22.00, "tags": ["GF"] },
+            { "name": "Shrimp Jalfrezi", "price": 22.00, "tags": ["GF"] },
+            { "name": "Malabar Shrimp", "price": 22.00, "tags": ["GF"] },
+            { "name": "Palak Shrimp", "price": 22.00, "tags": ["GF"] }
+          ]
+        },
+        "Main Course - Lamb": {
+          "note": "All curries served with basmati rice",
+          "items": [
+            { "name": "Lamb Shank", "price": 40.00, "tags": ["GF"] },
+            { "name": "Lamb Palak", "price": 22.00, "tags": ["GF"] },
+            { "name": "Lamb Vindaloo", "price": 22.00, "tags": ["GF"] },
+            { "name": "Lamb Rogan Josh", "price": 22.00, "tags": ["GF"] },
+            { "name": "Lamb Korma", "price": 22.00, "tags": ["GF"] },
+            { "name": "Lamb Tikka Masala", "price": 22.00, "tags": ["GF"] }
+          ]
+        },
+        "Main Course - Goat": {
+          "note": "All curries served with basmati rice",
+          "items": [
+            { "name": "Bhuna Goat", "price": 35.00, "tags": ["GF"] },
+            { "name": "Goat Rogan Josh", "price": 25.00, "tags": ["GF"] }
+          ]
+        },
+        "Main Course - Paneer": {
+          "note": "All curries served with basmati rice",
+          "items": [
+            { "name": "Paneer Tikka Masala", "price": 19.00, "tags": ["GF"] },
+            { "name": "Paneer Butter Masala", "price": 19.00, "tags": ["GF"] },
+            { "name": "Palak Paneer", "price": 19.00, "tags": ["GF"] },
+            { "name": "Kadai Paneer", "price": 19.00, "tags": ["GF"] },
+            { "name": "Malabar Paneer", "price": 19.00, "tags": ["GF"] },
+            { "name": "Traditional Matar Paneer", "price": 19.00, "tags": ["GF"] }
+          ]
+        },
+        "Main Course - Vegetarian": {
+          "note": "All curries served with basmati rice",
+          "items": [
+            { "name": "Veg Tikka Masala", "price": 19.00, "tags": ["GF"] },
+            { "name": "Malai Kofta", "price": 19.00, "tags": [] },
+            { "name": "Saag Chana", "price": 19.00, "tags": ["GF"] },
+            { "name": "Veg Jalfrezi", "price": 19.00, "tags": ["V", "GF"] },
+            { "name": "Chana Masala", "price": 18.00, "tags": ["V", "GF"] },
+            { "name": "Daal Makhni", "price": 18.00, "tags": ["GF"] },
+            { "name": "Daal Tadka", "price": 18.00, "tags": ["GF"] },
+            { "name": "Baingan Bhartha", "price": 18.00, "tags": ["GF"] },
+            { "name": "Aloo Gobhi", "price": 18.00, "tags": ["GF"] },
+            { "name": "Bhindi Masala", "price": 19.00, "tags": ["V", "GF"] },
+            { "name": "Chole Bhatura", "price": 18.00, "tags": [] }
+          ]
+        },
+        "Biryani": {
+          "note": "Long-grain basmati rice layered with protein, slow cooked with spices, saffron, cloves, cardamom, garnished with crispy fried onions, cilantro, almonds",
+          "items": [
+            { "name": "Veg Biryani", "price": 18.00, "tags": ["V", "GF"] },
+            { "name": "Paneer Biryani", "price": 19.00, "tags": ["GF"] },
+            { "name": "Chicken Biryani", "price": 19.00, "tags": ["GF"] },
+            { "name": "Lamb Biryani", "price": 22.00, "tags": ["GF"] },
+            { "name": "Goat Biryani", "price": 22.00, "tags": ["GF"] },
+            { "name": "Shrimp Biryani", "price": 22.00, "tags": ["GF"] }
+          ]
+        },
+        "Kids Meal": {
+          "note": "Mild only, ages 0-12",
+          "items": [
+            { "name": "French Fries", "price": 6.00, "tags": [] },
+            { "name": "Kids Mac & Cheese", "price": 7.00, "tags": [] },
+            { "name": "Paneer Biryani", "price": 10.00, "tags": ["GF"] },
+            { "name": "Chicken Biryani", "price": 10.00, "tags": ["GF"] },
+            { "name": "Paneer Tikka Masala", "price": 10.00, "tags": ["GF"] },
+            { "name": "Chicken Tikka Masala", "price": 10.00, "tags": ["GF"] },
+            { "name": "Butter Paneer", "price": 10.00, "tags": ["GF"] },
+            { "name": "Chicken Tenders", "price": 9.00, "tags": ["GF"] },
+            { "name": "Butter Chicken", "price": 10.00, "tags": ["GF"] },
+            { "name": "Cheese Naan", "price": 8.00, "tags": [] },
+            { "name": "Paneer (Cheese) Pizza", "price": 10.00, "tags": [] },
+            { "name": "Chicken Pizza", "price": 10.00, "tags": [] }
+          ]
+        },
+        "Pasta": {
+          "note": "Penne pasta in choice of sauce & protein",
+          "items": [
+            { "name": "Butter Chicken Pasta", "price": 18.00, "tags": [] },
+            { "name": "Chicken Tikka Pasta", "price": 18.00, "tags": [] },
+            { "name": "Butter Paneer Pasta", "price": 18.00, "tags": [] },
+            { "name": "Paneer Tikka Masala Pasta", "price": 18.00, "tags": [] },
+            { "name": "Palak Paneer Pasta", "price": 18.00, "tags": [] },
+            { "name": "Veg Tikka Masala Pasta", "price": 17.00, "tags": [] },
+            { "name": "Butter Shrimp Pasta", "price": 20.00, "tags": [] },
+            { "name": "Shrimp Tikka Masala Pasta", "price": 20.00, "tags": [] }
+          ]
+        },
+        "Indian Breads / Naan": [
+          { "name": "Tandoori Butter Naan", "price": 6.00, "tags": [] },
+          { "name": "Garlic Butter Naan", "price": 7.00, "tags": [] },
+          { "name": "Jalapeno Garlic / Bullet Naan", "price": 8.00, "tags": [] },
+          { "name": "Tandoori Roti", "price": 7.00, "tags": [] },
+          { "name": "Garlic Jalapeno Paneer Naan", "price": 11.00, "tags": [] },
+          { "name": "Garlic Cheese Paneer Naan", "price": 10.00, "tags": [] },
+          { "name": "Cheese Paneer Naan", "price": 8.00, "tags": [] },
+          { "name": "Aloo Parantha", "price": 7.00, "tags": [] },
+          { "name": "Lachha Parantha", "price": 7.00, "tags": [] },
+          { "name": "Onion Kulcha", "price": 7.00, "tags": [] }
+        ],
+        "Sides": [
+          { "name": "Chilies (Fresh)", "price": 3.00, "tags": [] },
+          { "name": "Onions & Chilies (Fresh)", "price": 5.00, "tags": [] },
+          { "name": "Onions (Fresh)", "price": 3.00, "tags": [] },
+          { "name": "Mint Chutney", "price": 5.00, "tags": [] },
+          { "name": "Spicy Chutney", "price": 5.00, "tags": [] },
+          { "name": "Tamarind Chutney", "price": 5.00, "tags": ["V", "GF"] },
+          { "name": "Sirca Onions", "price": 4.00, "tags": [] },
+          { "name": "Mango Chutney", "price": 2.00, "tags": ["V", "GF"] },
+          { "name": "Mixed Achar", "price": 2.00, "tags": ["V", "GF"] },
+          { "name": "Raitaa", "price": 4.00, "tags": ["GF"] },
+          { "name": "Papadum", "price": 5.00, "tags": ["V", "GF"], "quantity": "4 pcs" },
+          { "name": "Masala Papadum", "price": 6.00, "tags": ["V", "GF"] },
+          { "name": "Pulaao", "price": 12.00, "tags": ["GF"] },
+          { "name": "Basmati Rice", "price": 3.00, "tags": ["GF"] }
+        ],
+        "Dessert": [
+          { "name": "Meetha Paan", "price": 12.00, "tags": ["V", "GF"], "quantity": "2 pcs" },
+          { "name": "Paan Kulfi", "price": 8.00, "tags": ["GF", "D"] },
+          { "name": "Mango Kulfi", "price": 8.00, "tags": ["GF", "D"] },
+          { "name": "Rasmalai", "price": 8.00, "tags": ["GF", "D", "N"] },
+          { "name": "Gajar Halwa", "price": 8.00, "tags": ["GF", "D", "N"] },
+          { "name": "Gajar Halwa with Rabari", "price": 12.00, "tags": ["GF", "D", "N"] },
+          { "name": "Gulab Jamun", "price": 6.00, "tags": ["D", "N"] },
+          { "name": "Gulab Jamun with Rabari", "price": 12.00, "tags": ["D", "N"] }
+        ]
+      }
+    }
+  }
+}

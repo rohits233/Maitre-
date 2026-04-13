@@ -1,0 +1,21 @@
+{
+  "version": "52.0.0",
+  "files": {
+    "1952bde3231c4ec6347fb087e1f654fa5c401ad740383656449b8ba5c8fceecd": {
+      "displayName": "MaitreStack Template",
+      "source": {
+        "path": "MaitreStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "728904422502-us-east-1-a6d01127": {
+          "bucketName": "cdk-hnb659fds-assets-728904422502-us-east-1",
+          "objectKey": "1952bde3231c4ec6347fb087e1f654fa5c401ad740383656449b8ba5c8fceecd.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::728904422502:role/cdk-hnb659fds-file-publishing-role-728904422502-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

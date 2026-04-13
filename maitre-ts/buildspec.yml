@@ -1,0 +1,35 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_DEFAULT_REGION: us-east-1
+    ECR_REPO_NAME: maitre
+  exported-variables:
+    - IMAGE_TAG
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+      - ECR_REGISTRY=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - ECR_IMAGE=$ECR_REGISTRY/$ECR_REPO_NAME
+      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c1-8); IMAGE_TAG=${IMAGE_TAG:-$(date +%Y%m%d%H%M%S)}
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
+
+  build:
+    commands:
+      - echo Building maitre-ts Docker image...
+      - docker build -t $ECR_IMAGE:$IMAGE_TAG -t $ECR_IMAGE:latest maitre-ts/
+
+  post_build:
+    commands:
+      - echo Pushing image to ECR...
+      - docker push $ECR_IMAGE:$IMAGE_TAG
+      - docker push $ECR_IMAGE:latest
+      - printf '[{"name":"maitre","imageUri":"%s"}]' $ECR_IMAGE:$IMAGE_TAG > imagedefinitions.json
+      - echo Build complete. Image $ECR_IMAGE:$IMAGE_TAG
+
+artifacts:
+  files:
+    - imagedefinitions.json

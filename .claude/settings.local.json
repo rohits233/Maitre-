@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(aws sts:*)",
+      "Bash(aws bedrock:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(git commit -m ':*)"
+    ]
+  }
+}

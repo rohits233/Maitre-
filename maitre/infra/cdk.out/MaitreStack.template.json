@@ -1,0 +1,1554 @@
+{
+ "Resources": {
+  "MaitreVpc571A551F": {
+   "Type": "AWS::EC2::VPC",
+   "Properties": {
+    "CidrBlock": "10.0.0.0/16",
+    "EnableDnsHostnames": true,
+    "EnableDnsSupport": true,
+    "InstanceTenancy": "default",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/Resource"
+   }
+  },
+  "MaitreVpcPublicSubnet1Subnet21963665": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1a",
+    "CidrBlock": "10.0.0.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PublicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet1/Subnet"
+   }
+  },
+  "MaitreVpcPublicSubnet1RouteTable408C4138": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PublicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet1/RouteTable"
+   }
+  },
+  "MaitreVpcPublicSubnet1RouteTableAssociation85A43C15": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MaitreVpcPublicSubnet1RouteTable408C4138"
+    },
+    "SubnetId": {
+     "Ref": "MaitreVpcPublicSubnet1Subnet21963665"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet1/RouteTableAssociation"
+   }
+  },
+  "MaitreVpcPublicSubnet1DefaultRouteA2CDC2FA": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "MaitreVpcIGW401E5305"
+    },
+    "RouteTableId": {
+     "Ref": "MaitreVpcPublicSubnet1RouteTable408C4138"
+    }
+   },
+   "DependsOn": [
+    "MaitreVpcVPCGWAFEB5E50"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet1/DefaultRoute"
+   }
+  },
+  "MaitreVpcPublicSubnet1EIP07ADB2D0": {
+   "Type": "AWS::EC2::EIP",
+   "Properties": {
+    "Domain": "vpc",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PublicSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet1/EIP"
+   }
+  },
+  "MaitreVpcPublicSubnet1NATGateway4EDAFCD4": {
+   "Type": "AWS::EC2::NatGateway",
+   "Properties": {
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "MaitreVpcPublicSubnet1EIP07ADB2D0",
+      "AllocationId"
+     ]
+    },
+    "SubnetId": {
+     "Ref": "MaitreVpcPublicSubnet1Subnet21963665"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PublicSubnet1"
+     }
+    ]
+   },
+   "DependsOn": [
+    "MaitreVpcPublicSubnet1DefaultRouteA2CDC2FA",
+    "MaitreVpcPublicSubnet1RouteTableAssociation85A43C15"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet1/NATGateway"
+   }
+  },
+  "MaitreVpcPublicSubnet2Subnet586EE907": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1b",
+    "CidrBlock": "10.0.1.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PublicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet2/Subnet"
+   }
+  },
+  "MaitreVpcPublicSubnet2RouteTableCE3AB03D": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PublicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet2/RouteTable"
+   }
+  },
+  "MaitreVpcPublicSubnet2RouteTableAssociation2ED0F252": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MaitreVpcPublicSubnet2RouteTableCE3AB03D"
+    },
+    "SubnetId": {
+     "Ref": "MaitreVpcPublicSubnet2Subnet586EE907"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet2/RouteTableAssociation"
+   }
+  },
+  "MaitreVpcPublicSubnet2DefaultRouteF52789E3": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "MaitreVpcIGW401E5305"
+    },
+    "RouteTableId": {
+     "Ref": "MaitreVpcPublicSubnet2RouteTableCE3AB03D"
+    }
+   },
+   "DependsOn": [
+    "MaitreVpcVPCGWAFEB5E50"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet2/DefaultRoute"
+   }
+  },
+  "MaitreVpcPublicSubnet3SubnetA5C56AF2": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1c",
+    "CidrBlock": "10.0.2.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PublicSubnet3"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet3/Subnet"
+   }
+  },
+  "MaitreVpcPublicSubnet3RouteTable2168D8BF": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PublicSubnet3"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet3/RouteTable"
+   }
+  },
+  "MaitreVpcPublicSubnet3RouteTableAssociation24663F98": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MaitreVpcPublicSubnet3RouteTable2168D8BF"
+    },
+    "SubnetId": {
+     "Ref": "MaitreVpcPublicSubnet3SubnetA5C56AF2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet3/RouteTableAssociation"
+   }
+  },
+  "MaitreVpcPublicSubnet3DefaultRoute8E6D2794": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "MaitreVpcIGW401E5305"
+    },
+    "RouteTableId": {
+     "Ref": "MaitreVpcPublicSubnet3RouteTable2168D8BF"
+    }
+   },
+   "DependsOn": [
+    "MaitreVpcVPCGWAFEB5E50"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PublicSubnet3/DefaultRoute"
+   }
+  },
+  "MaitreVpcPrivateSubnet1Subnet8A78BE25": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1a",
+    "CidrBlock": "10.0.3.0/24",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PrivateSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet1/Subnet"
+   }
+  },
+  "MaitreVpcPrivateSubnet1RouteTableB7B1901A": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PrivateSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet1/RouteTable"
+   }
+  },
+  "MaitreVpcPrivateSubnet1RouteTableAssociationEC6C3DBD": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MaitreVpcPrivateSubnet1RouteTableB7B1901A"
+    },
+    "SubnetId": {
+     "Ref": "MaitreVpcPrivateSubnet1Subnet8A78BE25"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet1/RouteTableAssociation"
+   }
+  },
+  "MaitreVpcPrivateSubnet1DefaultRoute2B5D9966": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "MaitreVpcPublicSubnet1NATGateway4EDAFCD4"
+    },
+    "RouteTableId": {
+     "Ref": "MaitreVpcPrivateSubnet1RouteTableB7B1901A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet1/DefaultRoute"
+   }
+  },
+  "MaitreVpcPrivateSubnet2Subnet460177D0": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1b",
+    "CidrBlock": "10.0.4.0/24",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PrivateSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet2/Subnet"
+   }
+  },
+  "MaitreVpcPrivateSubnet2RouteTableDB9ECB37": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PrivateSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet2/RouteTable"
+   }
+  },
+  "MaitreVpcPrivateSubnet2RouteTableAssociationECF40454": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MaitreVpcPrivateSubnet2RouteTableDB9ECB37"
+    },
+    "SubnetId": {
+     "Ref": "MaitreVpcPrivateSubnet2Subnet460177D0"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet2/RouteTableAssociation"
+   }
+  },
+  "MaitreVpcPrivateSubnet2DefaultRoute2875840D": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "MaitreVpcPublicSubnet1NATGateway4EDAFCD4"
+    },
+    "RouteTableId": {
+     "Ref": "MaitreVpcPrivateSubnet2RouteTableDB9ECB37"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet2/DefaultRoute"
+   }
+  },
+  "MaitreVpcPrivateSubnet3Subnet6D1EB293": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1c",
+    "CidrBlock": "10.0.5.0/24",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PrivateSubnet3"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet3/Subnet"
+   }
+  },
+  "MaitreVpcPrivateSubnet3RouteTable4499D95A": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc/PrivateSubnet3"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet3/RouteTable"
+   }
+  },
+  "MaitreVpcPrivateSubnet3RouteTableAssociationD537B45E": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MaitreVpcPrivateSubnet3RouteTable4499D95A"
+    },
+    "SubnetId": {
+     "Ref": "MaitreVpcPrivateSubnet3Subnet6D1EB293"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet3/RouteTableAssociation"
+   }
+  },
+  "MaitreVpcPrivateSubnet3DefaultRoute72E60868": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "MaitreVpcPublicSubnet1NATGateway4EDAFCD4"
+    },
+    "RouteTableId": {
+     "Ref": "MaitreVpcPrivateSubnet3RouteTable4499D95A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/PrivateSubnet3/DefaultRoute"
+   }
+  },
+  "MaitreVpcIGW401E5305": {
+   "Type": "AWS::EC2::InternetGateway",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MaitreStack/MaitreVpc"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/IGW"
+   }
+  },
+  "MaitreVpcVPCGWAFEB5E50": {
+   "Type": "AWS::EC2::VPCGatewayAttachment",
+   "Properties": {
+    "InternetGatewayId": {
+     "Ref": "MaitreVpcIGW401E5305"
+    },
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreVpc/VPCGW"
+   }
+  },
+  "AlbSg1155C1BE": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "ALB - inbound HTTP/HTTPS from internet",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "HTTP",
+      "FromPort": 80,
+      "IpProtocol": "tcp",
+      "ToPort": 80
+     },
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "HTTPS",
+      "FromPort": 443,
+      "IpProtocol": "tcp",
+      "ToPort": 443
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/AlbSg/Resource"
+   }
+  },
+  "AlbSgtoMaitreStackFargateSgDDCC071B80805A24CD4F": {
+   "Type": "AWS::EC2::SecurityGroupEgress",
+   "Properties": {
+    "Description": "To Fargate",
+    "DestinationSecurityGroupId": {
+     "Fn::GetAtt": [
+      "FargateSg4CA74029",
+      "GroupId"
+     ]
+    },
+    "FromPort": 8080,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "AlbSg1155C1BE",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "ToPort": 8080
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/AlbSg/to MaitreStackFargateSgDDCC071B:8080"
+   }
+  },
+  "FargateSg4CA74029": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Fargate tasks - inbound from ALB only",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/FargateSg/Resource"
+   }
+  },
+  "FargateSgfromMaitreStackAlbSg2ABF1EF28080AB81ACA5": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "From ALB",
+    "FromPort": 8080,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "FargateSg4CA74029",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "AlbSg1155C1BE",
+      "GroupId"
+     ]
+    },
+    "ToPort": 8080
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/FargateSg/from MaitreStackAlbSg2ABF1EF2:8080"
+   }
+  },
+  "MaitreClusterF4DC9F9F": {
+   "Type": "AWS::ECS::Cluster",
+   "Properties": {
+    "ClusterName": "maitre"
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreCluster/Resource"
+   }
+  },
+  "MaitreLogs09B8F4C9": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": "/ecs/maitre",
+    "RetentionInDays": 7
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreLogs/Resource"
+   }
+  },
+  "MaitreTaskDefTaskRole8B9B1F89": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreTaskDef/TaskRole/Resource"
+   }
+  },
+  "MaitreTaskDefTaskRoleDefaultPolicyEABB7CF0": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":secretsmanager:us-east-1:728904422502:secret:maitre/twilio-??????"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": [
+        "bedrock:InvokeModelWithBidirectionalStream",
+        "bedrock:InvokeModel"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-sonic-v1:0"
+      },
+      {
+       "Action": [
+        "dynamodb:GetItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:Query",
+        "dynamodb:Scan",
+        "dynamodb:BatchGetItem",
+        "dynamodb:BatchWriteItem"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:dynamodb:us-east-1:728904422502:table/*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "MaitreTaskDefTaskRoleDefaultPolicyEABB7CF0",
+    "Roles": [
+     {
+      "Ref": "MaitreTaskDefTaskRole8B9B1F89"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreTaskDef/TaskRole/DefaultPolicy/Resource"
+   }
+  },
+  "MaitreTaskDef5300B090": {
+   "Type": "AWS::ECS::TaskDefinition",
+   "Properties": {
+    "ContainerDefinitions": [
+     {
+      "Environment": [
+       {
+        "Name": "PORT",
+        "Value": "8080"
+       },
+       {
+        "Name": "NODE_ENV",
+        "Value": "production"
+       },
+       {
+        "Name": "HOST",
+        "Value": "voice.qwiklybuy.com"
+       },
+       {
+        "Name": "AWS_REGION",
+        "Value": "us-east-1"
+       },
+       {
+        "Name": "SECRET_ARN",
+        "Value": "arn:aws:secretsmanager:us-east-1:728904422502:secret:maitre/twilio"
+       },
+       {
+        "Name": "TWILIO_PHONE_NUMBER",
+        "Value": "+13186484313"
+       },
+       {
+        "Name": "RESERVATIONS_TABLE",
+        "Value": "Reservations"
+       },
+       {
+        "Name": "AVAILABILITY_SLOTS_TABLE",
+        "Value": "AvailabilitySlots"
+       },
+       {
+        "Name": "LOCATIONS_TABLE",
+        "Value": "Locations"
+       },
+       {
+        "Name": "VIP_LIST_TABLE",
+        "Value": "VIPList"
+       },
+       {
+        "Name": "CALL_FLOW_RULES_TABLE",
+        "Value": "CallFlowRules"
+       },
+       {
+        "Name": "VOICE_PERSONAS_TABLE",
+        "Value": "VoicePersonas"
+       },
+       {
+        "Name": "CALL_RECORDS_TABLE",
+        "Value": "CallRecords"
+       },
+       {
+        "Name": "IDEMPOTENCY_KEYS_TABLE",
+        "Value": "IdempotencyKeys"
+       },
+       {
+        "Name": "FEEDBACK_SURVEYS_TABLE",
+        "Value": "FeedbackSurveys"
+       },
+       {
+        "Name": "DEFAULT_LOCATION_ID",
+        "Value": "default"
+       }
+      ],
+      "Essential": true,
+      "HealthCheck": {
+       "Command": [
+        "CMD-SHELL",
+        "wget -qO- http://localhost:8080/health || exit 1"
+       ],
+       "Interval": 30,
+       "Retries": 3,
+       "StartPeriod": 60,
+       "Timeout": 5
+      },
+      "Image": {
+       "Fn::Join": [
+        "",
+        [
+         "728904422502.dkr.ecr.us-east-1.",
+         {
+          "Ref": "AWS::URLSuffix"
+         },
+         "/maitre:latest"
+        ]
+       ]
+      },
+      "LogConfiguration": {
+       "LogDriver": "awslogs",
+       "Options": {
+        "awslogs-group": {
+         "Ref": "MaitreLogs09B8F4C9"
+        },
+        "awslogs-stream-prefix": "maitre",
+        "awslogs-region": "us-east-1"
+       }
+      },
+      "Name": "maitre",
+      "PortMappings": [
+       {
+        "ContainerPort": 8080,
+        "Protocol": "tcp"
+       }
+      ],
+      "Secrets": [
+       {
+        "Name": "TWILIO_ACCOUNT_SID",
+        "ValueFrom": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":secretsmanager:us-east-1:728904422502:secret:maitre/twilio:TWILIO_ACCOUNT_SID::"
+          ]
+         ]
+        }
+       },
+       {
+        "Name": "TWILIO_AUTH_TOKEN",
+        "ValueFrom": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":secretsmanager:us-east-1:728904422502:secret:maitre/twilio:TWILIO_AUTH_TOKEN::"
+          ]
+         ]
+        }
+       }
+      ],
+      "StopTimeout": 120
+     }
+    ],
+    "Cpu": "256",
+    "ExecutionRoleArn": {
+     "Fn::GetAtt": [
+      "MaitreTaskDefExecutionRoleE05019D7",
+      "Arn"
+     ]
+    },
+    "Family": "MaitreStackMaitreTaskDef59CAEAFD",
+    "Memory": "512",
+    "NetworkMode": "awsvpc",
+    "RequiresCompatibilities": [
+     "FARGATE"
+    ],
+    "TaskRoleArn": {
+     "Fn::GetAtt": [
+      "MaitreTaskDefTaskRole8B9B1F89",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreTaskDef/Resource"
+   }
+  },
+  "MaitreTaskDefExecutionRoleE05019D7": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreTaskDef/ExecutionRole/Resource"
+   }
+  },
+  "MaitreTaskDefExecutionRoleDefaultPolicyA760D42B": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":ecr:us-east-1:728904422502:repository/maitre"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "ecr:GetAuthorizationToken",
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "MaitreLogs09B8F4C9",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":secretsmanager:us-east-1:728904422502:secret:maitre/twilio-??????"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "MaitreTaskDefExecutionRoleDefaultPolicyA760D42B",
+    "Roles": [
+     {
+      "Ref": "MaitreTaskDefExecutionRoleE05019D7"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreTaskDef/ExecutionRole/DefaultPolicy/Resource"
+   }
+  },
+  "MaitreService73585C5F": {
+   "Type": "AWS::ECS::Service",
+   "Properties": {
+    "Cluster": {
+     "Ref": "MaitreClusterF4DC9F9F"
+    },
+    "DeploymentConfiguration": {
+     "Alarms": {
+      "AlarmNames": [],
+      "Enable": false,
+      "Rollback": false
+     },
+     "MaximumPercent": 200,
+     "MinimumHealthyPercent": 0
+    },
+    "DesiredCount": 1,
+    "EnableECSManagedTags": false,
+    "HealthCheckGracePeriodSeconds": 60,
+    "LaunchType": "FARGATE",
+    "LoadBalancers": [
+     {
+      "ContainerName": "maitre",
+      "ContainerPort": 8080,
+      "TargetGroupArn": {
+       "Ref": "MaitreAlbHttpsListenerMaitreTargetsGroup35F6CB57"
+      }
+     }
+    ],
+    "NetworkConfiguration": {
+     "AwsvpcConfiguration": {
+      "AssignPublicIp": "DISABLED",
+      "SecurityGroups": [
+       {
+        "Fn::GetAtt": [
+         "FargateSg4CA74029",
+         "GroupId"
+        ]
+       }
+      ],
+      "Subnets": [
+       {
+        "Ref": "MaitreVpcPrivateSubnet1Subnet8A78BE25"
+       },
+       {
+        "Ref": "MaitreVpcPrivateSubnet2Subnet460177D0"
+       },
+       {
+        "Ref": "MaitreVpcPrivateSubnet3Subnet6D1EB293"
+       }
+      ]
+     }
+    },
+    "ServiceName": "maitre",
+    "TaskDefinition": {
+     "Ref": "MaitreTaskDef5300B090"
+    }
+   },
+   "DependsOn": [
+    "MaitreAlbHttpsListenerMaitreTargetsGroup35F6CB57",
+    "MaitreAlbHttpsListener9ABA4610",
+    "MaitreTaskDefTaskRoleDefaultPolicyEABB7CF0",
+    "MaitreTaskDefTaskRole8B9B1F89"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreService/Service"
+   }
+  },
+  "MaitreAlbD85D9CD3": {
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+   "Properties": {
+    "LoadBalancerAttributes": [
+     {
+      "Key": "deletion_protection.enabled",
+      "Value": "false"
+     },
+     {
+      "Key": "idle_timeout.timeout_seconds",
+      "Value": "3600"
+     }
+    ],
+    "Scheme": "internet-facing",
+    "SecurityGroups": [
+     {
+      "Fn::GetAtt": [
+       "AlbSg1155C1BE",
+       "GroupId"
+      ]
+     }
+    ],
+    "Subnets": [
+     {
+      "Ref": "MaitreVpcPublicSubnet1Subnet21963665"
+     },
+     {
+      "Ref": "MaitreVpcPublicSubnet2Subnet586EE907"
+     },
+     {
+      "Ref": "MaitreVpcPublicSubnet3SubnetA5C56AF2"
+     }
+    ],
+    "Type": "application"
+   },
+   "DependsOn": [
+    "MaitreVpcPublicSubnet1DefaultRouteA2CDC2FA",
+    "MaitreVpcPublicSubnet1RouteTableAssociation85A43C15",
+    "MaitreVpcPublicSubnet2DefaultRouteF52789E3",
+    "MaitreVpcPublicSubnet2RouteTableAssociation2ED0F252",
+    "MaitreVpcPublicSubnet3DefaultRoute8E6D2794",
+    "MaitreVpcPublicSubnet3RouteTableAssociation24663F98"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreAlb/Resource"
+   }
+  },
+  "MaitreAlbHttpsListener9ABA4610": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "Certificates": [
+     {
+      "CertificateArn": "arn:aws:acm:us-east-1:728904422502:certificate/cbd6177c-fef5-4a04-a0b1-6496f1b50a04"
+     }
+    ],
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "MaitreAlbHttpsListenerMaitreTargetsGroup35F6CB57"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "MaitreAlbD85D9CD3"
+    },
+    "Port": 443,
+    "Protocol": "HTTPS"
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreAlb/HttpsListener/Resource"
+   }
+  },
+  "MaitreAlbHttpsListenerMaitreTargetsGroup35F6CB57": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "HealthCheckIntervalSeconds": 30,
+    "HealthCheckPath": "/health",
+    "Matcher": {
+     "HttpCode": "200"
+    },
+    "Port": 8080,
+    "Protocol": "HTTP",
+    "TargetGroupAttributes": [
+     {
+      "Key": "deregistration_delay.timeout_seconds",
+      "Value": "120"
+     },
+     {
+      "Key": "stickiness.enabled",
+      "Value": "false"
+     },
+     {
+      "Key": "load_balancing.algorithm.type",
+      "Value": "least_outstanding_requests"
+     }
+    ],
+    "TargetType": "ip",
+    "VpcId": {
+     "Ref": "MaitreVpc571A551F"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreAlb/HttpsListener/MaitreTargetsGroup/Resource"
+   }
+  },
+  "MaitreAlbHttpListener6C5E9165": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "DefaultActions": [
+     {
+      "RedirectConfig": {
+       "Port": "443",
+       "Protocol": "HTTPS",
+       "StatusCode": "HTTP_301"
+      },
+      "Type": "redirect"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "MaitreAlbD85D9CD3"
+    },
+    "Port": 80,
+    "Protocol": "HTTP"
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreAlb/HttpListener/Resource"
+   }
+  },
+  "CodeBuildLogs2297454D": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": "/codebuild/maitre",
+    "RetentionInDays": 7
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/CodeBuildLogs/Resource"
+   }
+  },
+  "MaitreDockerBuildRole665AD8E0": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codebuild.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreDockerBuild/Role/Resource"
+   }
+  },
+  "MaitreDockerBuildRoleDefaultPolicy22D3F2F0": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::maitre-source-728904422502"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::maitre-source-728904422502/maitre-ts-source.zip"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "CodeBuildLogs2297454D",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":logs:us-east-1:728904422502:log-group:/aws/codebuild/",
+           {
+            "Ref": "MaitreDockerBuild6AAB0B3E"
+           }
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":logs:us-east-1:728904422502:log-group:/aws/codebuild/",
+           {
+            "Ref": "MaitreDockerBuild6AAB0B3E"
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "codebuild:CreateReportGroup",
+        "codebuild:CreateReport",
+        "codebuild:UpdateReport",
+        "codebuild:BatchPutTestCases",
+        "codebuild:BatchPutCodeCoverages"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":codebuild:us-east-1:728904422502:report-group/",
+          {
+           "Ref": "MaitreDockerBuild6AAB0B3E"
+          },
+          "-*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": [
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage",
+        "ecr:CompleteLayerUpload",
+        "ecr:UploadLayerPart",
+        "ecr:InitiateLayerUpload",
+        "ecr:PutImage"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":ecr:us-east-1:728904422502:repository/maitre"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "ecr:GetAuthorizationToken",
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::maitre-source-728904422502"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":s3:::maitre-source-728904422502/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "MaitreDockerBuildRoleDefaultPolicy22D3F2F0",
+    "Roles": [
+     {
+      "Ref": "MaitreDockerBuildRole665AD8E0"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreDockerBuild/Role/DefaultPolicy/Resource"
+   }
+  },
+  "MaitreDockerBuild6AAB0B3E": {
+   "Type": "AWS::CodeBuild::Project",
+   "Properties": {
+    "Artifacts": {
+     "Type": "NO_ARTIFACTS"
+    },
+    "Cache": {
+     "Type": "NO_CACHE"
+    },
+    "Description": "Builds maitre-ts Docker image from S3 and pushes to ECR",
+    "EncryptionKey": "alias/aws/s3",
+    "Environment": {
+     "ComputeType": "BUILD_GENERAL1_SMALL",
+     "EnvironmentVariables": [
+      {
+       "Name": "AWS_DEFAULT_REGION",
+       "Type": "PLAINTEXT",
+       "Value": "us-east-1"
+      },
+      {
+       "Name": "ECR_REPO_NAME",
+       "Type": "PLAINTEXT",
+       "Value": "maitre"
+      }
+     ],
+     "Image": "aws/codebuild/standard:7.0",
+     "ImagePullCredentialsType": "CODEBUILD",
+     "PrivilegedMode": true,
+     "Type": "LINUX_CONTAINER"
+    },
+    "LogsConfig": {
+     "CloudWatchLogs": {
+      "GroupName": {
+       "Ref": "CodeBuildLogs2297454D"
+      },
+      "Status": "ENABLED",
+      "StreamName": "build"
+     }
+    },
+    "Name": "maitre-docker-build",
+    "ServiceRole": {
+     "Fn::GetAtt": [
+      "MaitreDockerBuildRole665AD8E0",
+      "Arn"
+     ]
+    },
+    "Source": {
+     "BuildSpec": "maitre-ts/buildspec.yml",
+     "Location": "maitre-source-728904422502/maitre-ts-source.zip",
+     "Type": "S3"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/MaitreDockerBuild/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/31RXW/bMAz8LX1X1NbLH0jSrghQrIYT9HWgacZjokiGSCUIDP/3wXa+tgJ94vF4EnjHzGbTqX16gKNMsNpNHJe2XSngzsBRfreEmW0/GzSLjf/MFyZPpWNcpdKT9twNFSEpraF0dONv3EwkIINy8FdxD16XeV9+gb6B0hFOJo98AKXbx0uvFD1dBeMm526mCvhnT17NijBF1tNbDKkZdviWeK0jiXyhl37gO0MYbUFNENYQT3MQMoRi24VLohT7hxf4E2INvVHZvdCGPV9s/s8Er8Ce4h13fruieGAcoxthZ1yoxbbvob4auODOMOxtW4Qx7KHmwTEO6YyoM+RAlNEFqEpw4JF9fchsO2saxzjc4j1ANR9mo6N/+nsdi5I/ay74br6GWJNe97xrOyM/7DzhjnTIEENFZWJX2TaPYUs43PgMu84UJCHFMYmPpE3SzvhQkd3K4yF7ss+ZfX7YCvMkJq+8J1uM9S/2ZbrGygIAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "MaitreStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "WebhookUrl": {
+   "Description": "Paste into Twilio as your Voice webhook URL",
+   "Value": "https://voice.qwiklybuy.com/voice/inbound"
+  },
+  "MediaStreamUrl": {
+   "Description": "Nova Sonic WebSocket media stream URL",
+   "Value": "wss://voice.qwiklybuy.com/media-stream"
+  },
+  "AlbDnsName": {
+   "Value": {
+    "Fn::GetAtt": [
+     "MaitreAlbD85D9CD3",
+     "DNSName"
+    ]
+   }
+  },
+  "CodeBuildProject": {
+   "Description": "Run: aws codebuild start-build --project-name maitre-docker-build",
+   "Value": {
+    "Ref": "MaitreDockerBuild6AAB0B3E"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}
