@@ -64,17 +64,17 @@ export class AudioTranscoderImpl implements AudioTranscoder {
   }
 
   /**
-   * Convert PCM 16-bit little-endian 16kHz back to mulaw 8kHz.
-   * Downsample 16kHz→8kHz by taking every other sample, then encode to mulaw.
+   * Convert PCM 16-bit little-endian 24kHz back to mulaw 8kHz.
+   * Downsample 24kHz→8kHz by taking every 3rd sample, then encode to mulaw.
    */
   novaSonicToMulaw(novaSonicBuffer: Buffer): Buffer {
-    // Each sample is 2 bytes; take every other sample → half the samples
+    // Each sample is 2 bytes; take every 3rd sample → 1/3 the samples
     const inputSamples = Math.floor(novaSonicBuffer.length / 2);
-    const outputSamples = Math.floor(inputSamples / 2);
+    const outputSamples = Math.floor(inputSamples / 3);
     const output = Buffer.allocUnsafe(outputSamples);
     for (let i = 0; i < outputSamples; i++) {
-      // Take every other sample (indices 0, 2, 4, ... in sample space)
-      const pcm = novaSonicBuffer.readInt16LE(i * 4);
+      // Take every 3rd sample (indices 0, 3, 6, ... → byte offsets 0, 6, 12, ...)
+      const pcm = novaSonicBuffer.readInt16LE(i * 6);
       output[i] = encodeMulaw(pcm);
     }
     return output;
