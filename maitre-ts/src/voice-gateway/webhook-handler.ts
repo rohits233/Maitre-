@@ -13,7 +13,7 @@
 import { Router, Request, Response } from 'express';
 import twilio from 'twilio';
 import { validateTwilioSignature } from './signature-validator';
-import { VIPRouter, CallFlowEvaluator } from '../types/index';
+import { VIPRouter, CallFlowEvaluator, ConversationEngine, VoicePersona } from '../types/index';
 
 // ─── Draining flag ────────────────────────────────────────────────────────────
 
@@ -29,6 +29,8 @@ export interface WebhookHandlerConfig {
   twilioAuthToken: string;
   /** Hostname used to build the wss:// media stream URL (e.g. "example.ngrok.io") */
   host: string;
+  conversationEngine?: ConversationEngine;
+  voicePersona?: VoicePersona;
 }
 
 export function createWebhookHandler(
@@ -57,7 +59,16 @@ export function createWebhookHandler(
         void vipRouter;
         void callFlowEvaluator;
 
+        // Pre-warm Nova Sonic connection while TwiML greeting plays
+        const callSid = req.body?.CallSid as string | undefined;
+        if (callSid && config.conversationEngine && config.voicePersona) {
+          config.conversationEngine.preWarmSession(callSid, config.voicePersona);
+        }
+
         const twiml = new twilio.twiml.VoiceResponse();
+        // Play greeting instantly via TwiML while Nova Sonic connects in background
+        const greeting = config.voicePersona?.greeting ?? 'Hello, please hold while I connect you.';
+        twiml.say({ voice: 'Polly.Joanna' }, greeting);
         const connect = twiml.connect();
         connect.stream({ url: `wss://${config.host}/media-stream` });
 

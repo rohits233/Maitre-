@@ -10,7 +10,7 @@ import { NovaSonicClient, NovaSonicClientFactory } from './conversation-engine';
 import { logger } from '../logger';
 
 const MODEL_ID = 'amazon.nova-sonic-v1:0';
-const VOICE_ID = 'matthew';
+const VOICE_ID = 'tiffany';
 
 class AsyncQueue<T> {
   private queue: T[] = [];
@@ -89,10 +89,10 @@ export class NovaSonicBedrockClient extends EventEmitter implements NovaSonicCli
     this._send({ event: { contentEnd: { promptName: this.promptName, contentName: resultContentName } } });
   }
 
-  sendSystemPrompt(systemPrompt: string, greeting: string): void {
+  sendSystemPrompt(systemPrompt: string, _greeting: string): void {
     if (!this._isOpen) return;
-    const fullPrompt = systemPrompt + '\n\nStart the conversation by saying: "' + greeting + '"';
-    logger.info('[nova-sonic] Sending system prompt', { callSid: this.callSid, promptLen: fullPrompt.length, greeting });
+    const fullPrompt = systemPrompt + '\n\nThe caller has already been greeted. Listen for their first question and respond naturally. Do not repeat the greeting.';
+    logger.info('[nova-sonic] Sending system prompt', { callSid: this.callSid, promptLen: fullPrompt.length });
     this._send({ event: { contentStart: { promptName: this.promptName, contentName: this.contentName, type: 'TEXT', interactive: true, role: 'SYSTEM', textInputConfiguration: { mediaType: 'text/plain' } } } });
     this._send({ event: { textInput: { promptName: this.promptName, contentName: this.contentName, content: fullPrompt } } });
     this._send({ event: { contentEnd: { promptName: this.promptName, contentName: this.contentName } } });
@@ -157,7 +157,7 @@ export class NovaSonicBedrockClient extends EventEmitter implements NovaSonicCli
       promptStart.toolConfiguration = { tools: this._buildToolSpecs() };
     }
 
-    logger.info('[nova-sonic] Connecting', { callSid: this.callSid, hasTools: this.toolDefinitions.length > 0 });
+    logger.info('[nova-sonic] Connecting', { callSid: this.callSid, promptStart: JSON.stringify({ event: { promptStart } }).slice(0, 500) });
     this.inputQueue.push({ chunk: { bytes: Buffer.from(JSON.stringify({ event: { promptStart } })) } });
 
     const command = new InvokeModelWithBidirectionalStreamCommand({ modelId: MODEL_ID, body: this.inputQueue });

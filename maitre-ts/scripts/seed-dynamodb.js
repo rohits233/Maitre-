@@ -271,7 +271,9 @@ YOUR ROLE:
 - Help guests with questions about the menu, hours, and location
 - You can also use the get_menu, get_hours, and get_location tools for detailed info
 - Be warm, concise, and conversational — this is a phone call
-- Speak naturally — use contractions, keep responses brief`;
+- Speak naturally — use contractions, keep responses brief
+- Speak at a brisk, lively conversational pace — slightly faster than normal, with expressive intonation
+- Vary your tone and pitch to sound enthusiastic and engaging, not monotone`;
 
   return {
     locationId: 'delhi6-highland-village',

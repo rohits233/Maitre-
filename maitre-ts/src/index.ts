@@ -141,15 +141,17 @@ async function main(): Promise<void> {
     }),
   ]);
 
+  // ── WebSocket media stream server ────────────────────────────────────────────
+  const defaultPersona = voicePersonaLoader.getDefault();
+
   // ── Webhook router ───────────────────────────────────────────────────────────
   const webhookRouter = createWebhookHandler(vipRouter, callFlowEvaluator, {
     twilioAuthToken: config.twilioAuthToken,
     host,
+    conversationEngine,
+    voicePersona: defaultPersona,
   });
   app.use('/', webhookRouter);
-
-  // ── WebSocket media stream server ────────────────────────────────────────────
-  const defaultPersona = voicePersonaLoader.getDefault();
   const wss = createMediaStreamServer(sessionManager, audioTranscoder, conversationEngine, defaultPersona, mcpRouter);
 
   // ── HTTP server ──────────────────────────────────────────────────────────────

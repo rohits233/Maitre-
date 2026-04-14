@@ -35,6 +35,7 @@ interface SessionState {
   audioOutputHandler?: (audio: Buffer) => void;
   interruptionHandler?: () => void;
   toolRequestHandler?: (req: ToolRequest) => Promise<ToolResult>;
+  audioBuffer: Buffer[];
   ended: boolean;
 }
 
@@ -48,11 +49,15 @@ export class ConversationEngineImpl implements ConversationEngine {
     this.factory = factory;
   }
 
+  preWarmSession(callSid: string, voicePersona: VoicePersona): void {
+    if (this.sessions.has(callSid)) return;
+    const state = this._createSessionState(callSid, voicePersona);
+    this.sessions.set(callSid, state);
+  }
+
   async startSession(callSession: CallSession, voicePersona: VoicePersona): Promise<void> {
     const { callSid } = callSession;
-    if (this.sessions.has(callSid)) {
-      throw new Error(`Session already exists for callSid: ${callSid}`);
-    }
+    if (this.sessions.has(callSid)) return; // already pre-warmed
 
     const state = this._createSessionState(callSid, voicePersona);
     this.sessions.set(callSid, state);
@@ -70,6 +75,13 @@ export class ConversationEngineImpl implements ConversationEngine {
     const state = this.sessions.get(callSid);
     if (!state) return;
     state.audioOutputHandler = handler;
+    // Flush any audio buffered during pre-warm
+    if (state.audioBuffer.length > 0) {
+      for (const chunk of state.audioBuffer) {
+        handler(chunk);
+      }
+      state.audioBuffer = [];
+    }
   }
 
   onInterruption(callSid: string, handler: () => void): void {
@@ -109,6 +121,7 @@ export class ConversationEngineImpl implements ConversationEngine {
     const state: SessionState = {
       connection,
       client,
+      audioBuffer: [],
       ended: false,
     };
 
@@ -133,6 +146,8 @@ export class ConversationEngineImpl implements ConversationEngine {
     client.on('audio', (chunk: Buffer) => {
       if (state.audioOutputHandler) {
         state.audioOutputHandler(chunk);
+      } else {
+        state.audioBuffer.push(chunk);
       }
     });
 

@@ -164,6 +164,7 @@ export interface SessionManager {
 // ─── Conversation Engine ──────────────────────────────────────────────────────
 
 export interface ConversationEngine {
+  preWarmSession(callSid: string, voicePersona: VoicePersona): void;
   startSession(callSession: CallSession, voicePersona: VoicePersona): Promise<void>;
   sendAudio(callSid: string, audioChunk: Buffer): void;
   onAudioOutput(callSid: string, handler: (audio: Buffer) => void): void;
